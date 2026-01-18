@@ -1,0 +1,94 @@
+* {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body.dark-home {
+    margin: 0;
+    padding-top: 0 !important;
+    min-height: 100vh;
+    background: radial-gradient(circle at top, #1e1e1e, #000);
+    color: white;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+#Home {
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: flex-start;
+    background-color: #333333;
+    border: black 3px solid;
+    border-radius: 8px;
+    margin: 5vh;
+    height: clamp(300px, 40vh, 350px);
+    width: clamp(280px, 90vw, 320px);
+    top: 10%;
+    left: 47%;
+    transform: translateX(-50%);
+    z-index: 10;
+}
+
+@media (max-width: 768px) {
+    #Home {
+        left: 41%;
+    }
+}
+
+#Home p {
+    color: white;
+    background-color: #686868;
+    border-radius: 8px 8px 0 0;
+    font-size: xx-large;
+    text-align: center;
+    font-weight: bold;
+    justify-content: center;
+    text-transform: uppercase;
+    height: 7vh;
+    border: #1e1e1e;
+}
+
+#Home-button{
+    display: flex;
+    flex-direction: column;   
+    align-items: center;      
+    justify-content: center;
+    gap: 2vh;                 
+    padding-bottom: 2vh;
+    border: #1e1e1e;
+}
+
+#Home-button button{
+    color: white;
+    background-color: limegreen;
+    padding: 2vh 2vw;
+    height: clamp(40px, 7vh, 90px);
+    width: clamp(220px, 60vw, 280px);
+    border-radius: 8px;
+    border-color: #1e1e1e !important; 
+    text-align: center;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+#Home-button button:hover{
+    color: white;
+    background-color: #66bb6a;
+    padding: 2vh 2vw;
+    height: clamp(40px, 7vh, 90px);
+    width: clamp(220px, 60vw, 280px);
+    border-radius: 8px;
+    text-align: center;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+nav.navbar {
+    z-index: 15;
+}
+
+.home-icon {
+    width: clamp(70px, 7vw, 80px);
+    height: auto;
+    margin: 1vh auto;
+    display: block;
+}

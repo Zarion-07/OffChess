@@ -1,0 +1,212 @@
+﻿* {
+    font-family: Arial, Helvetica, sans-serif;
+}
+.chess-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 10vh;
+}
+
+#moveInfo {
+    margin: 0;
+    margin-top: 5vh;
+    display: flex;
+    justify-content: center; 
+    align-items: center;
+}
+
+#chessboard {
+    border-collapse: collapse;
+    width: clamp(280px, 80vmin, 480px);
+    height: clamp(280px, 80vmin, 480px);
+}
+
+    #chessboard .square {
+        width: calc(100% / 8);
+        height: calc(100% / 8);
+        text-align: center;
+        vertical-align: middle;
+    }
+
+    #chessboard .light {
+        background-color: #f0d9b5;
+    }
+
+    #chessboard .dark {
+        background-color: #b58863;
+    }
+
+    #chessboard img {
+        width: 100%;
+        height: 100%;
+    }
+.highlighted {
+    outline: 3px solid lightblue;
+    background-color: lightskyblue !important;
+}
+.enemy {
+    background-color: red !important;
+}
+
+.special {
+    background-color: violet !important;
+}
+
+.highlightPiece {
+    background-color: dimgrey !important;
+}
+
+#White_Promotion {
+    display: none;
+    justify-content: center;
+    align-items: center;
+    
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    width: clamp(280px, 30vw, 400px);
+    height: clamp(80px, 12vh, 220px);
+
+    z-index: 999;
+    background-color: black;
+    border: #f0d9b5;
+    border-radius: 4px;
+}
+
+#White_Promotion img{
+    height: 100%;
+    width: 100%;
+    object-fit: contain;
+}
+
+#Black_Promotion img{
+    height: 100%;
+    width: 100%;
+    object-fit: contain;
+}
+
+#Black_Promotion {
+    display: none;
+    justify-content: center;
+    align-items: center;
+    
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    width: clamp(280px, 30vw, 400px);
+    height: clamp(80px, 12vh, 220px);
+
+    z-index: 999;
+    background-color: black;
+    border: #f0d9b5;
+    border-radius: 4px;
+}
+
+.box {
+    height: 11vh;
+    width: 13vh;
+    background-color: #f0d9b5;
+    border: 3px solid black;
+}
+
+#promotion {
+    width: 100%;
+    height: 100%;
+}
+
+#victory-B {
+    position: fixed;
+    display: none;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: space-between;
+    background-color: #141414;
+    border: black 2px solid;
+    border-radius: 8px;
+
+    height: clamp(100px, 40vh, 350px);
+    width: clamp(80px, 90vw, 320px);
+    top: 25%;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 999;
+}
+#victory-W {
+    position: fixed;
+    display: none;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: space-between;
+    background-color: #141414;
+    border: black 2px solid;
+    border-radius: 8px;
+
+    height: clamp(300px, 40vh, 350px);
+    width: clamp(280px, 90vw, 320px);
+    top: 25%;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 999;
+}
+
+#victory-W p, #victory-B p {
+    margin: 0;
+    border-radius: 8px 8px 0 0;
+    text-transform: uppercase;
+    text-align: center;
+    font-weight: bold;
+    font-size: xx-large;
+    color: white;
+    background-color: gray;
+    
+}
+
+#victory-button {
+    width: 100%;
+    padding: 2vh;
+    display: flex;
+    justify-content: space-between;
+    text-transform: uppercase;
+    font-size: medium;
+    gap: 1vw;
+}
+
+#victory-button button {
+    text-transform: uppercase;
+}
+
+.refresh{
+    border: white 2px;
+    background-color: limegreen;
+    color: white;
+    font-weight: bold;
+    border-radius: 1vh;
+    width: clamp(120px, 17vw, 120px);
+    height: clamp(44px, 8vh, 64px);
+
+}
+.close {
+    border: white 2px;
+    background-color: limegreen;
+    color: white;
+    font-weight: bold;
+    border-radius: 1vh;
+    width: clamp(120px, 17vw, 120px);
+    height: clamp(44px, 8vh, 64px);
+}
+
+.overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.6);
+    z-index: 999;
+
+    justify-content: center;
+    align-items: center;
+
+    pointer-events: all;
+}
