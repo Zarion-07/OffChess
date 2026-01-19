@@ -41,7 +41,7 @@
         height: 100%;
     }
 .highlighted {
-    outline: 3px solid lightblue;
+    outline: 0.2vw solid lightblue;
     background-color: lightskyblue !important;
 }
 .enemy {
@@ -152,8 +152,24 @@
     transform: translateX(-50%);
     z-index: 999;
 }
+#stalemate {
+    position: fixed;
+    display: none;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: space-between;
+    background-color: #141414;
+    border: black 2px solid;
+    border-radius: 8px;
 
-#victory-W p, #victory-B p {
+    height: clamp(300px, 40vh, 350px);
+    width: clamp(280px, 90vw, 320px);
+    top: 25%;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 999;
+}
+#victory-W p, #victory-B p, #stalemate p{
     margin: 0;
     border-radius: 8px 8px 0 0;
     text-transform: uppercase;

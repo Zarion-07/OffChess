@@ -153,6 +153,10 @@ function victoryWhite() {
     element = document.querySelector("#victory-W");
     element.style.display = "flex";
 }
+function stalemate() {
+    element = document.querySelector("#stalemate");
+    element.style.display = "flex";
+}
 function close_B() {
     element1 = document.querySelector("#victory-B");
     element1.style.display = "none";

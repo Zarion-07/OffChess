@@ -1,3 +1,24 @@
+function getDifficultyFromURL() {
+    const urlParams = new URLSearchParams(window.location.search);
+    const difficulty = urlParams.get('difficulty');
+    
+    if (difficulty) {
+        console.log('Difficulty from URL:', difficulty);
+        return parseInt(difficulty);
+    }
+    
+    const storedDifficulty = localStorage.getItem('botDifficulty');
+    if (storedDifficulty) {
+        console.log('Difficulty from localStorage:', storedDifficulty);
+        return parseInt(storedDifficulty);
+    }
+    
+    console.log('Using default difficulty: 10');
+    return 10;
+}
+
+let depth = getDifficultyFromURL();
+
 class StockfishBot {
     constructor() {
         this.engine = new Worker('/js/stockfish.js');
@@ -11,7 +32,6 @@ class StockfishBot {
                 this.engineReady = true;
             }
 
-            // Best move output
             if (line.startsWith('bestmove')) {
                 const match = line.match(/bestmove\s([a-h][1-8][a-h][1-8])/);
                 if (match && this.onMoveCallback) {
@@ -24,7 +44,8 @@ class StockfishBot {
         this.engine.postMessage('isready');
     }
 
-    getBestMove(fen, callback, depth = 10) {
+    getBestMove(fen, callback, depth) {
+        console.log(depth);
         if (!this.engineReady) {
             console.warn('Engine not ready yet, skipping');
             return;
@@ -40,7 +61,6 @@ class StockfishBot {
         this.engine.postMessage('stop');
     }
     
-    // Terminate the engine
     quit() {
         this.engine.postMessage('quit');
         this.engine.terminate();
@@ -57,7 +77,6 @@ function makeBotMove() {
         const toCol = move[2].charCodeAt(0) - 96;
         const toRow = 9 - parseInt(move[3]);
         
-        // Execute the move on your board
         const fromSquare = document.querySelector(
             `.square[data-row="${fromRow}"][data-col="${fromCol}"]`
         );
@@ -74,7 +93,7 @@ function makeBotMove() {
                 play(toSquare);
             }, 100);
         }
-    }, 10); // depth 10 - adjust for difficulty
+    }, depth);
 }
 
 function afterPlayerMove() {
@@ -252,6 +271,11 @@ function triggerBotIfNeeded() {
     }
 }
 
+function changeDifficulty(level) {
+    console.log(level)
+    depth = level;
+}
+
 function changeFEN(currentFEN) {
     let parts = currentFEN.split(" ");
     let moves = parts[0].split("/");
@@ -269,7 +293,6 @@ function changeFEN(currentFEN) {
         }
     }
 
-    // ✅ normalize order
     newCastle = normalizeCastle(newCastle);
 
     parts[0] = moves.join("/");
