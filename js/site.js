@@ -78,8 +78,8 @@ function play(piece) {
         const selected = document.querySelector(".highlightPiece");
 
         if(!selected) {
-            document.querySelectorAll(".highlighted, .enemy")
-                .forEach(sq => sq.classList.remove("highlighted", "enemy"));
+            document.querySelectorAll(".highlighted, .enemy, .special")
+                .forEach(sq => sq.classList.remove("highlighted", "enemy", "special"));
             return;
         }
         
@@ -87,8 +87,8 @@ function play(piece) {
         
         if ((item.pieceName && item.node !== compare.node && item.color === to_Play)) {
             
-            document.querySelectorAll(".highlighted, .highlightPiece, .enemy")
-                .forEach(sq => sq.classList.remove("highlighted", "highlightPiece", "enemy"));
+            document.querySelectorAll(".highlighted, .enemy, .special")
+                .forEach(sq => sq.classList.remove("highlighted", "enemy", "special"));
             
             if(item.pieceType === "K") {
                 kingMove(item);
@@ -136,8 +136,8 @@ function play(piece) {
         } 
 
         else if(item.node === compare.node) {
-            document.querySelectorAll(".highlighted, .enemy")
-                .forEach(sq => sq.classList.remove("highlighted", "enemy"));
+            document.querySelectorAll(".highlighted, .enemy, .special")
+                .forEach(sq => sq.classList.remove("highlighted", "enemy", "special"));
             return;
         }
        

@@ -177,8 +177,6 @@ function Move(square, currentFEN) {
             return newFEN;
         }
     }
-
-    
     document.querySelectorAll(".highlighted, .highlightPiece, .enemy, .special")
         .forEach(sq => sq.classList.remove("highlighted", "highlightPiece", "enemy", "special"));
 }

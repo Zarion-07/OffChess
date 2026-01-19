@@ -160,6 +160,10 @@ function isPinned(piece) {
 
 function kingMove(piece) {
     if (!piece) return;
+
+    document.querySelectorAll(".highlighted, .enemy, .special, .highlightPiece")
+        .forEach(sq => sq.classList.remove("highlighted", "enemy", "special", "highlightPiece"));
+    
     const parts = currentFEN.split(" ");
     let castling = parts[2].split("");
     const kingMoves = [];

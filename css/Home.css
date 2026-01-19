@@ -92,3 +92,59 @@ nav.navbar {
     margin: 1vh auto;
     display: block;
 }
+
+#Difficulty {
+    display: none;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    border: 2px solid #1e1e1e;
+    border-radius: 8px;
+    position: relative;
+    width: min(320px, 90vw);
+    height: clamp(300px, 40vh, 350px);
+    align-items: center;
+    gap: 2vh;
+}
+
+#Difficulty h3 {
+    margin: 0;
+    color: white;
+    width: 100%;
+    background-color: #686868;
+    border-radius: 8px 8px 0 0;
+    font-size: xx-large;
+    text-align: center;
+    font-weight: bold;
+    justify-content: center;
+    text-transform: uppercase;
+    padding: 12px 0;
+    border: #1e1e1e;
+}
+
+#Difficulty button {
+    height: clamp(40px, 6vh, 90px);
+    width: clamp(220px, 8vw, 280px);
+    font-weight: bold;
+}
+
+@media (max-width: 768px) {
+    #Difficulty {
+        left: 10vw;
+    }
+}
+@media (min-width: 540px) {
+    #Difficulty {
+        left: 12%;
+    }
+}
+@media (min-width: 900px) {
+    #Difficulty {
+        left: 32%;
+    }
+}
+@media (min-width: 1000px) {
+    #Difficulty {
+        left: 38%;
+    }
+}

@@ -9,6 +9,14 @@
     <link rel="stylesheet" href="/css/Home.css">
     <link rel="stylesheet" href="/css/site.css">
     <meta name="keywords" content="Offline, Chess, Offline Chess, 1v1 chess">
+    <script>
+        function difficulty() {
+            const element = document.getElementById("Home");
+            const item = document.getElementById("Difficulty");
+            element.style.display = "none";
+            item.style.display = "flex";
+        }
+    </script>
 </head>
 <body class="dark-home">
     <header >
@@ -38,28 +46,25 @@
         <img src="/Images/WK.png" alt="WhiteKing" class="home-icon" />
         <div id="Home-button">
             <form method="get" action="/Home/Offline.html">
-                <button>Play Offline</button>
+                <button>Play 1v1</button>
             </form>
-            <form method="get" action="/Home/Bot.html">
-                <button>Play a Bot</button>
-            </form>
+
+            <button type="button" onclick="difficulty()">Play a Bot</button>    
         </div>
     </div>
     
-    <div style="margin-top: 20px; text-align: center; display: none;">
+    <div id="Difficulty" style="margin-top: 20px; text-align: center; display: none;">
         <h3>Choose Difficulty</h3>
-        <div style="display: flex; gap: 10px; justify-content: center;">
             
-            <a href="/Home/Bot.html?difficulty=3">
-                <button type="button" class="btn btn-success">Easy</button>
-            </a>
-            <a href="/Home/Bot.html?difficulty=7">
-                <button type="button" class="btn btn-warning">Medium</button>
-            </a>
-            <a href="/Home/Bot.html?difficulty=10">
-                <button type="button" class="btn btn-danger">Hard</button>
-            </a>
-        </div>
+        <a href="/Home/Bot.html?difficulty=3">
+            <button type="button" class="btn btn-success">Easy</button>
+        </a>
+        <a href="/Home/Bot.html?difficulty=7">
+            <button type="button" class="btn btn-warning">Medium</button>
+        </a>
+        <a href="/Home/Bot.html?difficulty=10">
+            <button type="button" class="btn btn-danger">Hard</button>
+        </a>
     </div>
 </body>
 </html>
